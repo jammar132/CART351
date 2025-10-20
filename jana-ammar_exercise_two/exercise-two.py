@@ -1,3 +1,5 @@
+#conda activate ex2env
+#python exercise-two.py
 from flask import Flask,render_template,request
 import os
 app = Flask(__name__)
@@ -67,12 +69,10 @@ def thank_you_t2():
     # Pass both original and masked to template
     return render_template("thank_you_t2.html", masked=masked, raw=combined)
 
-
 #*************************************************
 
 #run
 app.run(debug=True)
 
-
 if __name__ == "__main__":
-    app.run(debug=True)  # defaults to 127.0.0.1:5000
+    app.run(debug=True)  # defaults to 127.0.0.1:500
