@@ -1,0 +1,108 @@
+*{
+    margin:0;
+     padding:0;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+}
+h2{
+
+    font-size:32px;
+    padding:5px;
+    background-color:rgb(167, 69, 112);
+    color: rgb(255,255,255);
+}
+nav{
+    padding-bottom:5px;
+    background-color:rgb(167, 69, 112);
+}
+nav ul{
+    display:flex;
+    justify-content:right;
+}
+nav ul li{
+    width:10%;
+    text-transform: uppercase;
+    text-decoration: none;
+    list-style-type: none;
+}
+nav li a{
+text-decoration: none;
+color:rgb(255, 255, 255);
+}
+
+main{
+    margin: 10px;
+     background-color: rgb(229, 243, 245);
+     min-height:calc(75vh);
+}
+/*
+footer{
+     background-color:rgb(167, 69, 112);
+       min-height:5vh;
+       padding:5px;
+       color: rgb(255,255,255);
+
+}
+*/
+/*A little something cool I wanted to experiment with >:) */
+footer {
+  background-color: rgb(167, 69, 112);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.footer-scroll {
+  display: flex;
+  width: 200%; /* ensures enough space for the duplicated text */
+  animation: scrollFooter 15s linear infinite;
+}
+.scroll-text {
+  flex-shrink: 0;
+  width: 50%; /* half of the 200% container */
+  text-align: center;
+  letter-spacing: 1px;
+}
+@keyframes scrollFooter { /* Animation */
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/*Additional t1 styles added*/
+.indent-list {
+  margin-left: 2rem;  
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.responsive {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+figure {
+  text-align: center;
+}
+figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgb(70, 70, 70);
+}
+/*Additional t2 styles added */
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}

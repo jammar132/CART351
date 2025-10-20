@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h1>Task 2 — Form (GET)</h1>
+    <p class="muted">Enter two short texts and a longer note. On submit, we’ll combine them and replace all vowels with asterisks.</p>
+    
+    <form method="get" action="{{ url_for('thank_you_t2') }}" style="margin-top:1rem;">
+        <div class="row">
+            <div class="col">
+                <label for="first">First text</label>
+                <input type="text" id="first" name="first" placeholder="e.g., Glazed" required>
+            </div>
+            <div class="col">
+                <label for="second">Second text</label>
+                <input type="text" id="second" name="second" placeholder="e.g., Maple" required>
+            </div>
+        </div>
+        
+        <div class="row" style="margin-top:1rem;">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" rows="5" placeholder="Write anything you want…" required></textarea>
+        </div>
+        
+        <div style="margin-top:1rem;">
+            <button class="primary" type="submit">Submit</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

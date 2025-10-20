@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h1>{{ the_topic|capitalize }} World</h1>
+    <p>We currently have <strong>{{ number_of_donuts }}</strong> {{ the_topic }} available!</p>
+</section>
+
+{% if number_of_donuts > 20 %}
+<section class="card">
+    <h2>Trending Flavors:</h2>
+    <ul class="indent-list" style="font-size: 1.25rem; line-height: 1.6;">
+        {% for f in donut_data.flavours %}
+        <li>{{ f }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+<section class="card">
+    <h3>Our donut toppings</h3>
+    <ul class="indent-list">
+        {% for t in donut_data.toppings %}
+        <li>{{ loop.index }}. {{ t }}</li>
+        {% endfor %}
+    </ul>
+</section>
+<section class="card">
+    <h3>Perfect ice-cream pairings</h3>
+    <p>These flavours go great with {{ the_topic }}:</p>
+    <ul class="indent-list">
+        {% for ice in icecream_flavors %}
+        <li>{{ ice }}</li>
+        {% endfor %}
+    </ul>
+</section>
+<section class="card">
+    <h3>Gallery</h3>
+    <div class="grid">
+        {% for img in img_files %}
+        <figure>
+            <img class="responsive"
+            src="{{ url_for('static', filename='images/' ~ img.file) }}"
+            alt="{{ img.caption }}">
+            <figcaption>{{ img.caption }}</figcaption>
+        </figure>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

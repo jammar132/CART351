@@ -1,0 +1,59 @@
+<!-- will be a child of base-->
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h1>Welcome to CART 351 Exercise Two</h1>
+    <p>This Flask exercise demonstrates how to use Flask routes, HTML templates, and the Jinja templating engine.</p>
+</section>
+
+<section class="card">
+    <h2>What I Did</h2>
+    <p>
+    I built a Flask web application that includes multiple routes and templates. 
+    The <strong>/t1</strong> page displays variables using Jinja — including lists, conditionals, and images — 
+    while the <strong>/t2</strong> page demonstrates a form using the GET method that combines user input and 
+    replaces all vowels with asterisks.
+  </p>
+</section>
+
+<section class="card">
+    <h2>Issues I Encountered</h2>
+    <ul class="indent-list">
+        <li>At first, my web server wasn’t running properly. I kept seeing an error that said 
+        <code>Access to 127.0.0.1 was denied</code> (HTTP 403).I didn’t immediately know whether 
+        the issue came from my Flask code, my local environment, or my browser.</li>
+        <li>I used ChatGPT to help me work through the debugging process step by step. 
+        ChatGPT guided me to test the connection through the terminal using the command:<code>curl -i http://127.0.0.1:5000/</code></li>
+        <li>This showed that the request wasn’t actually reaching my Flask application, which helped confirm that the
+        issue wasn’t caused by my code but rather something with how the local server was being accessed. 
+        ChatGPT walked me through multiple troubleshooting steps — trying different ports, disabling possible 
+        conflicts, running Flask without the reloader, and confirming that the app was set to <code>app.run(debug=True)</code>.</li>
+        <li>Eventually the server launched properly and my project began loading as expected.
+        Through this process I learned how to read terminal responses, interpret HTTP error codes, 
+        and identify whether an issue comes from the code or from the system environment.
+        This debugging session also helped me understand the importance of checking the console output,
+        server logs, and using tools like <code>curl</code> to trace what’s really happening</li>
+    </ul>
+</section>
+
+<section class="card">
+    <h2>What was the error?</h2>
+    <p>Technically — the problem was AirPlay using port 5000 on my system.</p>
+    <ul class="indent-list">
+        <li>Flask normally starts its dev server on port 5000.</li>
+        <li>macOS Monterey and newer reserve that same port for AirPlay Receiver (AirTunes).</li>
+        <li>So when <code>http://127.0.0.1:5000/</code> opened, the request never reached Flask — 
+        it was intercepted by AirPlay, which replied “403 Forbidden.”</li>
+    </ul>
+</section>
+
+<section class="card">
+  <h2>Reflection</h2>
+  <p>
+    Through this exercise, I learned how Flask connects routes to templates, how GET data travels through the URL, 
+    and how small configuration issues (like port conflicts) can stop a server from running. 
+    I also learned how Jinja variables make it easy to reuse dynamic data in HTML templates. 
+    This project helped me strengthen both my Python and front-end debugging skills.
+  </p>
+</section>
+{% endblock %}

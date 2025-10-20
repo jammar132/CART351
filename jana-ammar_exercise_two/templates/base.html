@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../static/css/base.css">
+    <title>CART 351 EX TWO</title>
+
+    </head>
+    <body>
+        <header> 
+            <h2> CART 351 EX TWO </h2>
+            <nav>
+                <ul>
+                    <li> <a href="{{url_for('index')}}">Home </a> </li>
+                    <li> <a href="{{ url_for('t1') }}">Task 1 (Jinja Vars)</a> </li>
+                    <li> <a href="{{ url_for('t2') }}">Task 2 (Form GET)</a> </li>
+                </ul>
+                </nav>
+        </header>
+        <main>
+        {% block content %}{% endblock %}
+        </main>
+        <!--A little experiment >:)-->
+        <footer>
+            <div class="footer-scroll">
+                <div class="scroll-text">
+                    ** j3mmer is da best ** j3mmer is da best ** j3mmer is da best ** j3mmer is da best ** j3mmer is da best ** j3mmer is da best **
+                </div>
+                <div class="scroll-text">
+                    ** j3mmer is da best ** j3mmer is da best ** j3mmer is da best ** j3mmer is da best ** j3mmer is da best ** j3mmer is da best **
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h1>Thanks!</h1>
+    <p class="muted">Here’s your combined text with all vowels replaced by asterisks.</p>
+</section>
+
+<section class="card">
+    <h3>Masked Output</h3>
+    <p class="big-output" style="font-size:1.25rem; line-height:1.6; word-wrap:break-word;">
+    {{ masked }}
+    </p>
+</section>
+
+<section class="card">
+    <details>
+        <summary>Show original (before masking)</summary>
+        <p class="muted" style="margin-top:.5rem; word-wrap:break-word;">{{ raw }}</p>
+    </details>
+</section>
+{% endblock %}
