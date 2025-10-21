@@ -222,7 +222,7 @@ def view_city_search():
         print("-"*50)
 
 def view_station_details():
-    print(Fore.GREEN + "\nEnter station Unique Identifier.\n" + Style.DIM + "UID: 65 is for Fresh Kills West, New York. \n     1898 is for Oinomori, Tendo, Yamagata, Japan\n" + "-"*60)
+    print(Fore.GREEN + "\nEnter station Unique Identifier.\n" + Style.DIM + "UID: 65 is for Fresh Kills West, New York. \n     1898 is for Oinomori, Tendo, Yamagata, Japan. \n     etc...\n" + "-"*60)
     raw = input(Style.BRIGHT + Fore.CYAN + "\nEnter Station UID: ").strip()
     if not raw.isdigit():
         print(Fore.YELLOW + "Please enter a numeric UID.")
