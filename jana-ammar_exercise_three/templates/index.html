@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="log">
+  <h1>Recent check-ins</h1>
+  <ul class="list">
+    {% for e in entries %}
+      <li class="card quad-{{ (e.quadrant or '')|lower }}">
+        <div>
+            <strong>{{ e.emotion or '—' }}</strong> 
+            <span class="tag">{{ e.quadrant or '—' }}</span>
+            {% if e.time %}<span class="tag">· {{ e.time }}</span>{% endif %}
+        </div>
+        {% if e.journal %}<div class="j">{{ e.journal }}</div>{% endif %}
+        {% if e.user %}<div class="tag">by {{ e.user }}</div>{% endif %}
+      </li>
+    {% else %}
+      <li class="card" style="opacity:.7;">No entries yet. Make one on the t2 page.</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

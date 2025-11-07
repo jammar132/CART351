@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}t2 • Check-in{% endblock %}
+{% block content %}
+<section class="wrap">
+  <h1>Simple Mood Check-In</h1>
+  <!-- quadrants -->
+  <div class="quad" id="quad">
+    <button type="button" class="btn heu" data-q="HEU">High Energy • Unpleasant</button>
+    <button type="button" class="btn hep" data-q="HEP">High Energy • Pleasant</button>
+    <button type="button" class="btn leu" data-q="LEU">Low Energy • Unpleasant</button>
+    <button type="button" class="btn lep" data-q="LEP">Low Energy • Pleasant</button>
+  </div>
+  <!-- Word choices -->
+  <div>
+    <div class="tag" id="hint">Pick a quadrant, then choose a word:</div>
+    <div class="chips" id="wordBank"></div>
+  </div>
+  <!-- Journal + Name + Save -->
+  <div class="row">
+    <textarea id="journal" rows="3" placeholder="Journal (optional)..."></textarea>
+    <input id="username" type="text" placeholder="Your name (optional)">
+    <button id="saveBtn" class="btn" style="justify-self:end">Complete Check-In</button>
+  </div>
+
+  <div id="msg"></div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/t2.js') }}"></script>
+{% endblock %}

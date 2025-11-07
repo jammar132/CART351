@@ -1,0 +1,95 @@
+*{
+    margin:0;
+     padding:0;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+   
+}
+h2{
+
+    font-size:32px;
+    padding:5px;
+    background-color:rgb(167, 69, 112);
+    color: rgb(255,255,255);
+}
+nav{
+    padding-bottom:5px;
+    background-color:rgb(167, 69, 112);
+}
+nav ul{
+    display:flex;
+    justify-content:right;
+  
+}
+nav ul li{
+    width:10%;
+    text-transform: uppercase;
+    text-decoration: none;
+    list-style-type: none;
+
+      
+}
+nav li a{
+text-decoration: none;
+color:rgb(255, 255, 255);
+}
+
+main{
+    margin: 10px;
+     background-color: rgb(229, 243, 245);
+     min-height:calc(75vh);
+}
+
+footer{
+     background-color:rgb(167, 69, 112);
+       min-height:5vh;
+       padding:5px;
+       color: rgb(255,255,255);
+
+}
+
+/* Added UI  */
+.wrap{max-width:720px;margin:16px auto;padding:12px;border:1px solid #eee;border-radius:10px;background:#fff}
+.quad{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.btn{padding:.6rem .8rem;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer}
+.btn.active{outline:2px solid #111}
+
+/* button colors */
+.btn.heu { background:#ffe0e0; border-color:#e85c5c; }
+.btn.hep { background:#fff4cc; border-color:#f5c542; }
+.btn.leu { background:#e6f0ff; border-color:#4ea1ff; }
+.btn.lep { background:#e9fbf1; border-color:#4cc37a; }
+
+/* word chips layout */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{padding:.35rem .6rem;border:1px solid #ccc;border-radius:999px;background:#fff;cursor:pointer}
+.chip.active{border-color:#111}
+.row{display:grid;gap:8px;margin-top:10px}
+
+/* success/error message box */
+#msg{display:none;margin-top:8px;padding:.5rem .6rem;border:1px solid #b7f0c2;background:#eefbf0;border-radius:8px}
+
+/*Text box */
+textarea{
+  width:100%;
+  padding:.6rem;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-family:inherit;
+}
+
+/* inputs */
+input[type="text"]{padding:.5rem;border:1px solid #ddd;border-radius:8px}
+
+/*home log */
+.log{max-width:720px;margin:16px auto}
+.card{padding:.6rem .8rem;border:1px solid #e8e8e8;border-radius:10px;background:#fff}
+.list{list-style:none;padding:0;display:grid;gap:8px}
+.quad-heu{border-left:8px solid #e85c5c;background:#ffecec}
+.quad-hep{border-left:8px solid #f5c542;background:#fff8e1}
+.quad-leu{border-left:8px solid #4ea1ff;background:#eef6ff}
+.quad-lep{border-left:8px solid #4cc37a;background:#eefcf4}
+.tag{font-size:.8rem;opacity:.8}
+.j{margin-top:.25rem}

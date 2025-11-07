@@ -1,0 +1,8 @@
+quadrant=HEU	emotion=stressed	user=J3mmer	journal=Don't feel well
+quadrant=HEP	emotion=motivated	user=YAY	journal=Code is working!!!!
+time=2025-11-06 20:36:12	quadrant=LEP	emotion=satisfied	user=	journal=
+time=2025-11-06 20:37:58	quadrant=HEU	emotion=worried	user=	journal=
+time=2025-11-06 20:38:06	quadrant=LEU	emotion=meh	user=	journal=
+time=2025-11-06 20:41:10	quadrant=LEP	emotion=relaxed	user=j3mmer	journal=Big words... Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...Big words...
+time=2025-11-06 20:51:50	quadrant=LEP	emotion=relaxed	user=	journal=
+time=2025-11-06 20:52:14	quadrant=HEP	emotion=joyful	user=The Big Dawg	journal=finally done!!
