@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nightfall: Terminal Vampire Escape</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            
+            <button id="leaderboardBtn" class="leader-floating">Leader Chart</button>
+            <div id="leaderboard"></div>
+    
+            <div id="output"></div>
+    
+            <div id="main-row">
+                <pre id="map"></pre>
+      
+                <div id="sidebar">
+    
+                    <h3>Inventory</h3>  
+                    <ul id="inventory"></ul>
+      
+                    <h3>Status</h3>
+                    <p id="status"></p>
+                </div> 
+            </div> 
+            <div id="prompt"></div>
+
+            <p id="hint">
+                Use <strong>W/A/S/D</strong> or the <strong>Arrow Keys</strong> to move.
+                The map reveals only the tiles around you.
+            </p>
+        </div> 
+  <script>
+
+  const SESSION_ID = "{{ session_id }}";
+
+  </script>
+  
+  <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>

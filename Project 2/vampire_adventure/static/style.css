@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #0f0;
+    font-family: "Fira Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#container {
+    max-width: 1300px;    
+    margin: 20px auto;
+    border: 1px solid #0f0;
+    padding: 10px;
+    background: #000;
+    position: relative;     
+}
+
+#output {
+    height: 28vh;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+}
+
+#main-row {
+    display: flex;
+    gap: 12px;
+}
+
+/* Map */
+#map {
+    border-top: 1px solid #0f0;
+    border-bottom: 1px solid #0f0;
+    padding: 8px 0;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.1;
+    min-width: 520px;
+}
+
+.tile {
+    display: inline-block;
+    width: 1.4em;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 4px currentColor;
+}
+
+/* Text colors per tile type (letters are colored) */
+.tile[data-type="F"] { color: #02a64a; }   /* Bright forest green */
+.tile[data-type="R"] { color: #bbbbbb; }   /* Bright rocky road gray */
+.tile[data-type="H"] { color: #ffd700; }   /* Brighter house gold */
+.tile[data-type="C"] { color: #ffff66; }   /* Brighter church yellow */
+.tile[data-type="G"] { color: #4b6fff; }   /* Brighter graveyard blue */
+.tile[data-type="S"] { color: #e0d9a8; }   /* Brighter swamp khaki */
+.tile[data-type="V"] { color: #ff3366; }   /* Village square */
+.tile[data-type="."] { color: #d3d3d3; }   /* Empty field */
+.tile[data-type="unknown"] { color: #555555; }
+
+.tile.player {
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 0 0 6px #ff0000;
+}
+
+#sidebar {
+    min-width: 300px;
+    border-left: 1px solid #0f0;
+    padding-left: 10px;
+}
+#sidebar h3 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+#inventory {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 10px 0;
+    font-size: 13px;
+}
+#inventory li::before {
+    content: "- ";
+}
+#status {
+    font-size: 13px;
+}
+
+#prompt button {
+    background: transparent;
+    border: 1px solid #0f0;
+    color: #0f0;
+    font: inherit;
+    padding: 4px 10px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+/* Floating Leaderboard Button in top-right corner */
+#leaderboardBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    background: #000;
+    border: 1px solid #0f0;
+    color: #0f0;
+
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+
+    z-index: 50;
+}
+
+#leaderboardBtn:hover {
+    background: #0f0;
+    color: #000;
+}
+/* Small leaderboard panel under the button */
+#leaderboard {
+    position: absolute;
+    top: 48px;       
+    right: 15px;
+    background: #000;
+    border: 1px solid #0f0;
+    padding: 6px 8px;
+    font-size: 11px; 
+    line-height: 1.3;
+    max-width: 260px;
+    max-height: 260px;
+    overflow-y: auto;
+    display: none;    
+    z-index: 40;
+}
+#leaderboard h4 {
+    margin: 0 0 4px 0;
+    font-size: 12px;
+    color: #0f0;
+    text-transform: uppercase;
+}
+
+#leaderboard ol {
+    margin: 0;
+    padding-left: 14px;
+}
+
+#leaderboard li {
+    margin-bottom: 8px;
+}
+
+/* Prompt */
+#prompt {
+    min-height: 40px;
+    margin: 8px 0 10px 0;
+}
+#prompt p {
+    margin: 0 0 6px 0;
+}
+#prompt button {
+    background: transparent;
+    border: 1px solid #0f0;
+    color: #0f0;
+    font: inherit;
+    padding: 4px 10px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+#prompt button:hover {
+    background: #0f0;
+    color: #000;
+}
+
+/* Hint */
+#hint {
+    font-size: 12px;
+    opacity: 0.8;
+    margin: 0;
+}
