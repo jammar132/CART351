@@ -1,0 +1,424 @@
+:root{
+  --ink:#111; /* default text color */
+  --paper:#fff; /* page background */
+  --border: 4px solid #111; /* chunky border style */
+  --gap: 28px; /* spacing between columns/blocks */
+
+  /* main composer card sizing */
+  --cardW: 560px;
+  --cardH: 520px;
+
+  /* Posted cards minimum height target (wall grid) */
+  --gridCardW: 420px;
+  --gridCardH: 300px;
+}
+
+*{ box-sizing:border-box; }
+
+/* Base page styling */
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* Centers content and adds padding like a “layout frame” */
+.page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 18px 80px;
+}
+
+.hero .title{ /* header title styling */
+  margin: 0;
+  font-size: 56px;
+  letter-spacing: 1px;
+}
+.hero .subtitle{ /* Header subtitle styling */
+  margin: 12px 0 28px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+/* Column that holds: Card Color label + palette + below row (text/emotion) */
+.paletteColumn{
+  width: 320px;  /* matches palette card width */
+  display: flex;
+  flex-direction: column; /* stack items vertically */
+  gap: 14px; /* spacing */
+  align-items: flex-start;
+}
+
+
+/* Row directly under palette: Text Color + Emotion Tag */
+.belowPaletteRow{
+  width: 320px;   /* align to palette width */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* Top layout (3 columns) Composer | Palette | Filter */
+.topRow{
+  display: grid;
+  grid-template-columns: 1fr 320px 360px;
+  gap: var(--gap);
+  align-items: start;
+}
+
+/* stack columns into one on smaller screens */
+@media (max-width: 1100px){
+  .topRow{ grid-template-columns: 1fr; }
+}
+
+/* Composer card (big card) */
+.composerCard{
+  width: var(--cardW);
+  height: var(--cardH);
+  border: var(--border);
+  background: var(--cardColor, #ffffff); /* card color set by JS */
+  display: grid;
+  grid-template-rows: 64px 1fr 74px; /* Top bar, message area, bottom bar */
+  overflow: hidden;
+}
+
+.composerTop{ /* Top strip of composer (“To:” row) */
+  display: grid;
+  grid-template-columns: 64px 1fr 64px;
+  border-bottom: var(--border);
+  background: #fff; 
+  align-items: center;
+}
+
+.abcBox{ /* Left ABC box block */
+  border-right: var(--border);
+  height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.toRow{ /* “To:” row wrapper */
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 0 14px;
+}
+.toLabel{ font-weight: 700; } /* “To:” label weight */
+
+/* Name input styling */
+.toInput{
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  background: transparent;
+}
+
+/* Control label text style (Card Color:, Text Color:) */
+.ctrlLabel{
+  font-weight: 800;
+  font-size: 16px;
+  margin: 0 0 10px;
+  letter-spacing: 0.2px;
+}
+
+.ctrlLabelTight{
+  margin: 0;
+}
+
+/* Actual envelope symbol drawn via ::before */
+.mailIcon{
+  border-left: var(--border);
+  height: 100%;
+  position: relative;
+}
+.mailIcon::before{ 
+  content:"✉";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 22px;
+}
+
+/* Main message textarea */
+.msgInput{
+  width: 100%;
+  height: 100%;
+  resize: none; /* prevent resizing */
+  border: none;
+  outline: none;
+  padding: 22px 20px;
+  font-size: 52px;
+  line-height: 1.05;
+  color: #111; /* default text color (overridden by CSS var below) */
+  background: transparent; /* shows the card color */
+}
+
+/* Placeholder default (overridden by CSS var below) */
+.msgInput::placeholder{
+  color: rgba(0,0,0,0.35);
+}
+
+/* Bottom strip of composer (Send / hashtag / Back) */
+.composerBottom{
+  border-top: var(--border);
+  background: #fff; 
+  display:grid;
+  grid-template-columns: 140px 1fr 140px;
+  align-items:center;
+}
+
+/* Text buttons */
+.btnText{
+  border: none;
+  background: transparent;
+  font-weight: 800;
+  font-size: 22px;
+  cursor: pointer;
+}
+.hash{
+  text-align:center;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+/* Card color pallete block */
+.paletteCard{
+  border: var(--border);
+  padding: 14px;
+  width: 320px;
+  background: #fff;
+}
+
+.paletteGrid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.swatch{
+  width: 62px;
+  height: 50px;
+  border: 3px solid #111;
+  cursor: pointer;
+  background: #fff;
+}
+.swatch.isSelected{
+  outline: 5px solid #111;
+  outline-offset: 2px;
+}
+
+/* Emotion select block */
+.emotionCard{
+  margin-top: 14px;
+  border: var(--border);
+  padding: 14px;
+  width: 320px;
+  background: #fff;
+}
+.emotionRow{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 10px;
+  font-weight: 700;
+}
+.emotionSelect{
+  border: 2px solid #111;
+  padding: 8px 10px;
+  font-size: 15px;
+  background: #fff;
+}
+
+/* Search/Filter block */
+.filterCard{
+  border: var(--border);
+  padding: 14px;
+  width: 360px;
+  background: #fff;
+}
+.filterRow{
+  display:grid;
+  grid-template-columns: 1fr 140px;
+  gap: 10px;
+}
+.searchInput{
+  border: 2px solid #111;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+.emotionFilter{
+  border: 2px solid #111;
+  padding: 10px 10px;
+  font-size: 14px;
+  background:#fff;
+}
+
+.btnBlock{
+  width: 100%;
+  margin-top: 12px;
+  border: 2px solid #111;
+  background: #fff;
+  padding: 10px 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.resetLink{
+  display:inline-block;
+  margin-top: 10px;
+  font-weight: 700;
+  color: #1a38ff;
+  text-decoration: underline;
+}
+
+/* Wall & post grid */
+.wall{
+  margin-top: 36px;
+}
+
+.postsGrid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+@media (max-width: 1100px){ /* Drop to 2 columns on medium screens */
+  .postsGrid{ grid-template-columns: repeat(2, minmax(260px, 1fr)); }
+}
+@media (max-width: 700px){ /* Single column on small screens */
+  .postsGrid{ grid-template-columns: 1fr; }
+}
+
+.postCard{ /* Each posted card container */
+  width: 100%;
+  min-height: var(--gridCardH);
+  border: var(--border);
+  background: var(--cardColor, #fff); /* posted card uses chosen color */
+  display:grid;
+  grid-template-rows: 58px 1fr 58px;
+  overflow:hidden;
+}
+
+.postTop{ /* Posted card top bar */
+  display:grid;
+  grid-template-columns: 58px 1fr 58px;
+  border-bottom: var(--border);
+  background:#fff;
+  align-items:center;
+}
+
+.postTo{ /* “To:” text area */
+  padding: 0 12px;
+  font-size: 20px;
+}
+.toName{
+  font-weight: 800;
+}
+
+.postMsg{ /* Posted message text */
+  padding: 18px 16px;
+  font-size: 28px;
+  line-height: 1.15;
+  white-space: pre-wrap;
+}
+
+.postBottom{ /* Posted card bottom bar (emotion pill + delete button optionally) */
+  border-top: var(--border);
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.tagPill{ /* Emotion tag pill */
+  border: 2px solid #111;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 800;
+  background:#fff;
+}
+
+/* Delete button (only appears when can_delete = true) */
+.deleteBtn{
+  border: 2px solid #111;
+  background:#fff;
+  width: 34px;
+  height: 34px;
+  font-size: 22px;
+  line-height: 1;
+  cursor:pointer;
+}
+
+.emptyState{ /* Message shown when there are no posts */
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* JS-driven overrides (composer text + placeholder) */
+.msgInput{ /* overrides via JS when color changes */
+  color: var(--textColor, #111);
+}
+
+.msgInput::placeholder{ /* Placeholder color also controlled by CSS variables set in JS */
+  color: var(--placeholderColor, rgba(0,0,0,0.35));
+}
+
+/* Text color picker block */
+.textColorBlock{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.textPalette{
+  display: flex;
+  gap: 10px;
+}
+
+.textSwatch{
+  width: 62px;
+  height: 50px;
+  border: 3px solid #111;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: lowercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #111; /* black text on white swatch */
+}
+
+.textSwatch[data-text="white"]{
+  background: #111;
+  color: #fff; /* white text on black swatch */
+}
+
+/* Selected text swatch outline */
+.textSwatch.isSelected{
+  outline: 5px solid #111;
+  outline-offset: 2px;
+}
+/* Disabled state used when card is pure black or pure white */
+.textPalette.isDisabled{
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+
+/* Emotion block wrapper in the belowPaletteRow */
+.emotionWrap{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

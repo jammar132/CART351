@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="hero">
+  <h1 class="title">Unsent Confessions</h1>
+  <p class="subtitle">A public wall.<br>Say what you didn’t send.</p>
+</header>
+
+<section class="topRow">
+  <!-- Composer -->
+  <div class="composerWrap">
+    <div class="composerCard" id="composerCard">
+      <div class="composerTop">
+        <div class="abcBox">ABC</div>
+
+        <div class="toRow">
+          <span class="toLabel">To:</span>
+          <input id="toInput" class="toInput" placeholder="Enter Name" maxlength="50" />
+        </div>
+
+        <div class="mailIcon" aria-hidden="true"></div>
+      </div>
+
+      <textarea id="msgInput" class="msgInput" placeholder="Type Your Message Here..." maxlength="120"></textarea>
+
+      <div class="composerBottom">
+        <button id="sendBtn" class="btnText">Send</button>
+        <div class="hash">#remains</div>
+        <button id="clearBtn" class="btnText">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Palette + Emotion/Text controls -->
+  <div class="paletteColumn">
+    <div class="ctrlLabel">Card Color:</div>
+
+    <div class="paletteCard">
+      <div class="paletteGrid" id="paletteGrid" data-default="#000000">
+        {% for c in palette %}
+          <button
+            class="swatch"
+            type="button"
+            data-color="{{ c }}"
+            style="background: {{ c }};"
+            aria-label="Select color {{ c }}">
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="belowPaletteRow">
+      <div class="textColorBlock">
+        <div class="ctrlLabel ctrlLabelTight">Text Color:</div>
+        <div class="textPalette" id="textPalette">
+          <button type="button" class="textSwatch isSelected" data-text="black" aria-label="Black text">black</button>
+          <button type="button" class="textSwatch" data-text="white" aria-label="White text">white</button>
+        </div>
+      </div>
+
+      <div class="emotionWrap">
+        <span class="emotionLabel">Emotion tag:</span>
+        <select id="emotionSelect" class="emotionSelect">
+          {% for e in emotions %}
+            <option value="{{ e }}">{{ e }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search / Filter -->
+  <div class="filterWrap">
+    <div class="filterCard">
+      <div class="filterRow">
+        <input id="searchInput" class="searchInput" placeholder="Search..." />
+        <select id="emotionFilter" class="emotionFilter">
+          <option value="all">All emotions</option>
+          {% for e in emotions %}
+            <option value="{{ e }}">{{ e }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button id="applyFilter" class="btnBlock">Filter</button>
+      <a href="#" id="resetFilter" class="resetLink">Reset</a>
+    </div>
+  </div>
+</section>
+
+<section class="wall">
+  <div id="postsGrid" class="postsGrid"></div>
+  <div id="emptyState" class="emptyState">No posts yet.</div>
+</section>
+{% endblock %}
