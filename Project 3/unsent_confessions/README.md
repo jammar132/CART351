@@ -8,11 +8,11 @@ Technical Overview:
 - Database: MongoDB Atlas
 - Hosting: Local
 
-AI Use:
-- Had assistance from ChatGPT for troubleshooting and setting up the MongoDB Atlas connection and resolving SSL-related configuration issues on macOS.
-
 Running the Project:
 - Create a virtual environment
 - Install dependencies from requirements.txt
 - Add a .env file with the MongoDB connection string
 - Run python app.py
+
+AI Use:
+- Had assistance from ChatGPT for troubleshooting and setting up the MongoDB Atlas connection and resolving SSL-related configuration issues on macOS.
