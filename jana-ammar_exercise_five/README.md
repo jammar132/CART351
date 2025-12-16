@@ -19,6 +19,7 @@ Each entry in the `dataStuff` MongoDB collection contains:
 ### Query THREE — Positive After Mood
 **Query Description**  
 - This query returns all entries where the `after_mood` is classified as positive.
+
 **Visualization Intention**  
 The visualization maps emotional outcomes after events:
 - Horizontal axis represents `after_mood_strength`
@@ -28,6 +29,7 @@ Each dot corresponds to a single entry. The visualization reveals how strongly p
 ### Query FOUR — Entries Grouped by Event
 **Query Description**  
 This query returns all entries sorted by `event_name`.
+
 **Visualization Intention**  
 Each event is displayed as its own card, and each dot represents a single occurrence of that event.
 This view emphasizes:
@@ -38,6 +40,7 @@ This view emphasizes:
 ### Query FIVE — Monday vs Tuesday
 **Query Description**  
 This query filters entries that occurred on Monday or Tuesday and sorts them by `event_affect_strength`.
+
 **Visualization Intention**  
 - Each row represents a day, and dots are distributed horizontally by event impact strength.
 - The visualization compares how event intensity differs between the two days, focusing on distribution rather than averages.
@@ -45,6 +48,7 @@ This query filters entries that occurred on Monday or Tuesday and sorts them by 
 ### Query SIX — Negative Start and Negative After Mood
 **Query Description**  
 This query returns entries where both `start_mood` and `after_mood` are negative, sorted by weather.
+
 **Visualization Intention**  
 - Each horizontal band represents a weather condition. Dots represent entries where negative mood persisted before and after the event.
 - This visualization explores the relationship between environmental context and sustained negative emotional states, allowing patterns and outliers to emerge.
